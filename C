@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+int main() {
+    // Random Drink Generator
+    char *fruits[] = {"water", "tea", "hot chocolate", "coffee", "milkshake", "milk", "cold drinks", "soda", "smoothie", "slushy", "cocktail", "lemonade", "mojito"};
+    srand(time(NULL));
+    int num_fruits = sizeof(fruits) / sizeof(fruits[0]);
+    char *realvalue = fruits[rand() % num_fruits];
+    int len_value = strlen(realvalue);
+
+    // Starting
+    printf("___-----___GUESSING GAME___----___\n");
+    printf("NOTE: THIS WILL ALSO COUNT BLANKS AND THE ANSWERS SHOULD ALL BE LOWERCASE\n");
+    printf("\nEnter your name: ");
+    char name[100];
+    fgets(name, sizeof(name), stdin);
+    name[strcspn(name, "\n")] = 0; // Remove newline character
+
+    // Asking the User the Drink
+    printf("\nGuess a popular drink with %d characters: ", len_value);
+    char input_value[100];
+    fgets(input_value, sizeof(input_value), stdin);
+    input_value[strcspn(input_value, "\n")] = 0; // Remove newline character
+
+    // Checking if the value entered by the User is same as the random generated drink
+    while (strcmp(input_value, realvalue) != 0) {
+        printf("\nIncorrect, please try again: ");
+        fgets(input_value, sizeof(input_value), stdin);
+        input_value[strcspn(input_value, "\n")] = 0; // Remove newline character
+    \
+    }
+
+    printf("\nCongratulations, %s, you are correct!!\n", name);
+
+    return 0;
+}
