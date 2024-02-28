@@ -1,0 +1,32 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        // Random Drink Generator
+        String[] Drinks = {"water", "tea", "hot chocolate", "coffee", "milkshake", "milk", "cold drinks", "soda", "smoothie", "slushy", "cocktail", "lemonade", "mojito"};
+        Random rnd = new Random();
+        String realValue = Drinks[rnd.nextInt(Drinks.length)];
+        int lenValue = realValue.length();
+
+        // Starting
+        System.out.println("___-----___GUESSING GAME___----___");
+        System.out.println("NOTE: THIS WILL ALSO COUNT BLANKS AND THE ANSWERS SHOULD ALL BE LOWERCASE");
+        System.out.println("\nEnter your name: ");
+        Scanner scanner = new Scanner(System.in);
+        String name = scanner.nextLine();
+
+        // Asking the User the Drink
+        System.out.println("\nGuess a popular drink with " + lenValue + " characters: ");
+        String inputValue = scanner.nextLine().toLowerCase();
+
+        // Checking if the value entered by the User is same as the random generated drink
+        while (!inputValue.equals(realValue)) {
+            System.out.println("\nIncorrect, please try again: ");
+            inputValue = scanner.nextLine().toLowerCase();
+        }
+
+        System.out.println("\nCongratulations, " + name + ", you are correct!!");
+    }
+}
