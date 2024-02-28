@@ -1,0 +1,32 @@
+        static void Main(string[] args)
+        {
+            // Value that should be gussed
+            string realvalue;
+
+            // Random Drink Generator
+             Random rnddrinks = new Random();
+            string[] Drinks = new string[] { "water", "tea", "hot chocolate", "coffee", "milkshake", "milk" , "cold drinks", "soda", "smoothie", "slushy", "cocktail", "lemonade", "mojito"};
+            realvalue = Drinks[rnddrinks.Next(0, Drinks.Length)];
+            int len = realvalue.Length;
+
+            // Starting 
+            Console.WriteLine("___-----___GUSSING GAME___----___");
+            Console.WriteLine("NOTE: THIS WILL ALSO COUN BLANKS AND THE ANSWERS SHOULD ALL ME LOWERCASE");
+            Console.WriteLine("\nEnter your name: ");
+            string name = Console.ReadLine();
+
+
+            // Asking the User the Drink        
+            Console.WriteLine($"\nGuess a popular drink with {len} Characters:  ");
+            string input = Console.ReadLine();
+
+            // Checking if the value entered by the User is the same as the random generated drink
+            while (input != realvalue)
+            {
+                Console.WriteLine("\nIncorrect, please try again:  ");
+                input = Console.ReadLine();
+            }
+
+           Console.WriteLine($"\nCongratulations! {name} you are correct!!");
+           Console.ReadLine();
+        }
