@@ -1,0 +1,29 @@
+# Random Drink Generator
+import random
+
+Drinks = [
+    "water", "tea", "hot chocolate", "coffee", "milkshake", "milk",
+    "cold drinks", "soda", "smoothie", "slushy", "cocktail", "lemonade",
+    "mojito"
+]
+# Value that should be gussed
+realvalue = random.choice(Drinks)
+len_value = len(realvalue)
+
+# Starting
+print("___-----___GUESSING GAME___----___")
+print(
+    "NOTE: THIS WILL ALSO COUNT BLANKS AND THE ANSWERS SHOULD ALL BE LOWERCASE"
+)
+name = input("\nEnter your name: ")
+
+# Asking the User the Drink
+print(f"\nGuess a popular drink with {len_value} characters: ")
+input_value = input()
+
+# Checking if the value entered by the User is the same as the random generated drink
+while input_value != realvalue:
+  print("\nIncorrect, please try again: ")
+  input_value = input()
+
+print(f"\nCongratulations, {name}, you are correct!!")
