@@ -1,0 +1,43 @@
+#include <cstdlib>
+#include <ctime>
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+int main() {
+  // Random Drink Generator
+  vector<string> Drinks = {"water",     "tea",    "hot chocolate", "coffee",
+                           "milkshake", "milk",   "cold drinks",   "soda",
+                           "smoothie",  "slushy", "cocktail",      "lemonade",
+                           "mojito"};
+  srand(time(0)); 
+  string realvalue = Drinks[rand() % Drinks.size()];
+  int len_value = realvalue.length();
+
+  // Starting
+  cout << "___-----___GUESSING GAME___----___" << endl;
+  cout << "NOTE: THIS WILL ALSO COUNT BLANKS AND THE ANSWERS SHOULD ALL BE "
+          "LOWERCASE"
+       << endl;
+  cout << "\nEnter your name: ";
+  string name;
+  getline(cin, name);
+
+  // Asking the User the Drink
+  cout << "\nGuess a popular drink with " << len_value << " characters: ";
+  string input_value;
+  getline(cin, input_value);
+
+  // Checking if the value entered by the User is same as the random generated
+  // drink
+  while (input_value != realvalue) {
+    cout << "\nIncorrect, please try again: ";
+    getline(cin, input_value);
+  }
+
+  cout << "\nCongratulations, " << name << ", you are correct!!" << endl;
+
+  return 0;
+}
